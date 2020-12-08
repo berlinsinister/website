@@ -1,5 +1,5 @@
 let audio = document.querySelector('#audio');
-let delay = 2000;
+let delay = 3000;
 let random;
 
 audio.volume = 0.5;
@@ -67,21 +67,22 @@ for (let link of navbarLinks) {
 
 // welcome different languages switch
 let welcome = document.querySelector('.welcome');
-let languages = ['Welcome', 'Bienvenue', 'Sveiki atvykę', 'Velkominn', '어서 오십시오', 'ようこそ', 'Willkommen'];
+// let languages = ['Welcome', 'Bienvenue', 'Sveiki atvykę', 'Velkominn', '어서 오십시오', 'ようこそ', 'Willkommen'];
+let languages = ['Welcome', 'Bienvenue', 'Sveiki atvykę', 'Velkominn', 'Willkommen'];
 let i = 0;
 setInterval(() => {
     welcome.innerHTML = languages[i];
     welcome.classList.add('fade');
 
-    if (languages[i] == '어서 오십시오')
-        welcome.classList.add('korean');
-    else if (welcome.classList.contains('korean'))
-        welcome.classList.remove('korean');
+    // if (languages[i] == '어서 오십시오')
+    //     welcome.classList.add('korean');
+    // else if (welcome.classList.contains('korean'))
+    //     welcome.classList.remove('korean');
 
-    if (languages[i] == 'ようこそ')
-        welcome.classList.add('japanese');
-    else if (welcome.classList.contains('japanese'))
-        welcome.classList.remove('japanese');
+    // if (languages[i] == 'ようこそ')
+    //     welcome.classList.add('japanese');
+    // else if (welcome.classList.contains('japanese'))
+    //     welcome.classList.remove('japanese');
 
     i++;
 
@@ -108,14 +109,17 @@ navlogo.addEventListener('mouseover', () => {
     hexColor = '';
 });
 
-// navbar border-bottom on scroll
+// on scroll
 let navbar = document.querySelector('.navbar');
+let homeContent = document.querySelector('.home-content');
 window.addEventListener("scroll", () => {
     let y = window.scrollY;
     if (y >= 100) {
         navbar.classList.add('navbar-scroll');
+        homeContent.style.display = 'none';
     } else {
         navbar.classList.remove('navbar-scroll');
+        homeContent.style.display = 'block';
     }
 });
 
@@ -153,8 +157,9 @@ let active;
 let projects = document.querySelectorAll('.single-project');
 let leftArrow = document.querySelector('#left-arrow');
 let rightArrow = document.querySelector('#right-arrow');
+let tiles = document.querySelectorAll('.single-tile');
 
-// finding active project
+// function for finding active project and tile index
 const findActiveProjectIndex = projects => {
     let index;
     for (let project of projects) {
@@ -170,60 +175,43 @@ const findActiveProjectIndex = projects => {
 
 // left arrow click
 leftArrow.addEventListener('click', () => {
-    // finding active
-    // for (let project of projects) {
-    //     if (project.classList.contains('active')) {
-    //         active = project.getAttribute('id');
-    //         active = active.substr(8); // removing the string 'project-'
-    //         active = parseInt(active);
-    //         active--; // indexation!!
-    //         break;
-    //     }
-    // }
-
+    // finding active project and tile index
     active = findActiveProjectIndex(projects);
 
     projects[active].classList.remove('active');
     projects[active].classList.add('hidden');
+    tiles[active].classList.remove('single-tile-active');
     if (active - 1 == -1)
         active = projects.length - 1;
     else
         active--;
     projects[active].classList.add('active');
     projects[active].classList.remove('hidden');
+    tiles[active].classList.add('single-tile-active');
 
     audio.play();
 });
 
 // right arrow click
 rightArrow.addEventListener('click', () => {
-    // finding active
-    // for (let project of projects) {
-    //     if (project.classList.contains('active')) {
-    //         active = project.getAttribute('id');
-    //         active = active.substr(8); // removing the string 'project-'
-    //         active = parseInt(active);
-    //         active--; // indexation!!
-    //         break;
-    //     }
-    // }
-
+    // finding active project and tile index
     active = findActiveProjectIndex(projects);
 
     projects[active].classList.remove('active');
     projects[active].classList.add('hidden');
+    tiles[active].classList.remove('single-tile-active');
     if (active + 1 == projects.length)
         active = 0;
     else
         active++;
     projects[active].classList.add('active');
     projects[active].classList.remove('hidden');
+    tiles[active].classList.add('single-tile-active');
 
     audio.play();
 });
 
 // tiles click and project activation
-let tiles = document.querySelectorAll('.single-tile');
 let projectToActivate;
 let projectId;
 let tileId;
@@ -260,3 +248,13 @@ for (let tile of tiles) {
         audio.play();
     });
 }
+
+// phone show
+let phone = document.querySelector('#phone');
+phone.addEventListener('mouseover', () => {
+    phone.innerHTML = '593 95 17 33';
+});
+
+phone.addEventListener('mouseout', () => {
+    phone.innerHTML = 'call me';
+});
