@@ -1,7 +1,4 @@
 :root {
-    --number-font: 'Montserrat';
-    --title-font: 'Questrial';
-    --content-font: 'Source Sans Pro';
     --roboto: 'Roboto';    
     --magenta: #fd0037;
     --darkgray: #23252a;
@@ -116,7 +113,7 @@ html, body {
 
 .home-bg img {
     display: block;
-    opacity: 0.7;
+    opacity: 0.5;
     filter: grayscale(1);
     transition: 0.2s ease-out;
 }
@@ -261,6 +258,17 @@ html, body {
     line-height: 2;
 }
 
+.list-link {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+}
+
+.list-link:hover {
+    transform: translate(10px);
+}
+
 /* /about */
 
 /* projects */
@@ -286,13 +294,17 @@ html, body {
     justify-content: flex-start;
 }
 
-#projects-title, #project-details {
+#projects-title, #project-details, #subtitle {
     margin-bottom: 30px;
     width: 70%;
 }
 
 #project-details {
     font-weight: 200;
+}
+
+#subtitle {
+    font-size: 12pt;
 }
 
 .tiles-row {
@@ -306,15 +318,26 @@ html, body {
     width: 80px;
     height: 80px;
     margin: 10px;
-    padding: 15px;
+    padding: 17px;
     filter: grayscale(1);
     opacity: 0.5;
     border: 1px solid #cccccc;
+    transition: 0.2s ease-out;
+}
+
+.single-tile-active {
+    filter: grayscale(0);
+    opacity: 1;
+    border: 1px solid white;
+    /* box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.5); */
+    /* box-shadow: 4px 4px 2px -2px rgba(0, 0, 0, 0.5); */
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .single-tile:hover {
     filter: grayscale(0);
     opacity: 1;
+    cursor: pointer;
 }
 
 .single-tile-blink {
@@ -348,11 +371,15 @@ html, body {
 }
 
 #left-arrow, #right-arrow {
-    color: var(--cyan);
+    /* color: white; */
+    color: black;
+    /* font-size: 7pt; */
     cursor: pointer;
-    /* position: relative;
-    top: -20px; */
-    padding: 20px;
+    margin: 70px;
+}
+
+#left-arrow:hover, #right-arrow:hover {
+    opacity: 0.8;
 }
 
 .active {
@@ -389,9 +416,7 @@ html, body {
 .single-project-img:hover span {
     display: block;    
     padding: 5px 20px;
-    background-color: #101010;
     background-color: rgba(15, 15, 15, 0.5);
-    border-radius: 3px;
     z-index: 1;
     position: absolute;
     left: 20px;
@@ -433,8 +458,7 @@ html, body {
 
 .single-project-title {
     padding: 5px 5px 20px 5px;
-    font-family: 'Source Sans Pro';
-    font-size: 14pt;
+    font-size: 12pt;
     font-weight: 400;
     text-transform: uppercase;
     /* border: 1px solid salmon; */
@@ -446,7 +470,7 @@ html, body {
 }
 
 .single-project-languages ul {
-    /* border-left: 1px solid var(--cyan); */
+    list-style: none;
     margin-top: 10px;
     margin-left: 5px;
 }
@@ -476,15 +500,29 @@ html, body {
 .single-project-info a {
     margin: 2px 0;
     display: inline-block;
-}
-
-a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
-/**/
 
-/* /projects */
+.single-project-info a:hover {
+    opacity: 0.8;
+}
+/* end of ctrl-v */
+/* end of projects */
+
+/* contacts */
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    background-color: #222222;
+    color: white;
+    margin: 30px 0 100px 0; /* repeat */
+}
+
+
+/* end of contacts */
 
 @media screen and (max-width: 600px) {
     .home-content {

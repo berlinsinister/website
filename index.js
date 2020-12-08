@@ -1,5 +1,5 @@
 let audio = document.querySelector('#audio');
-let delay = 1000;
+let delay = 2000;
 let random;
 
 audio.volume = 0.5;
@@ -119,6 +119,21 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// mouseover and mouseout on list links
+let listLinks = document.querySelectorAll('.list-link');
+let fa = '<span class="lnr lnr-chevron-right"></span>';
+let falen = fa.length;
+for (let link of listLinks) {
+    link.addEventListener('mouseover', () => {
+        // if (link.innerHTML[0] != fa[0]) // for rocket logo - prev version
+        link.innerHTML = fa + link.innerHTML;
+        audio.play();
+    });
+    link.addEventListener('mouseout', () => {
+        link.innerHTML = link.innerHTML.slice(falen);
+    });
+}
+
 // tiles blink
 // let tiles = document.querySelectorAll('.single-tile');
 // const singleTileBlink = singleTile => {
@@ -133,24 +148,40 @@ window.addEventListener("scroll", () => {
 // }
 
 // projects slider
-// let active = 0;
+// let active = 0; // from prev version
 let active;
 let projects = document.querySelectorAll('.single-project');
 let leftArrow = document.querySelector('#left-arrow');
 let rightArrow = document.querySelector('#right-arrow');
 
+// finding active project
+const findActiveProjectIndex = projects => {
+    let index;
+    for (let project of projects) {
+        if (project.classList.contains('active')) {
+            index = project.getAttribute('id');
+            index = index.substr(8); // removing the string 'project-'
+            index = parseInt(index);
+            index--; // indexation!!
+            return index;
+        }
+    }
+}
+
 // left arrow click
 leftArrow.addEventListener('click', () => {
     // finding active
-    for (let project of projects) {
-        if (project.classList.contains('active')) {
-            active = project.getAttribute('id');
-            active = active.substr(8); // removing the string 'project-'
-            active = parseInt(active);
-            active--; // indexation!!
-            break;
-        }
-    }
+    // for (let project of projects) {
+    //     if (project.classList.contains('active')) {
+    //         active = project.getAttribute('id');
+    //         active = active.substr(8); // removing the string 'project-'
+    //         active = parseInt(active);
+    //         active--; // indexation!!
+    //         break;
+    //     }
+    // }
+
+    active = findActiveProjectIndex(projects);
 
     projects[active].classList.remove('active');
     projects[active].classList.add('hidden');
@@ -167,15 +198,17 @@ leftArrow.addEventListener('click', () => {
 // right arrow click
 rightArrow.addEventListener('click', () => {
     // finding active
-    for (let project of projects) {
-        if (project.classList.contains('active')) {
-            active = project.getAttribute('id');
-            active = active.substr(8); // removing the string 'project-'
-            active = parseInt(active);
-            active--; // indexation!!
-            break;
-        }
-    }
+    // for (let project of projects) {
+    //     if (project.classList.contains('active')) {
+    //         active = project.getAttribute('id');
+    //         active = active.substr(8); // removing the string 'project-'
+    //         active = parseInt(active);
+    //         active--; // indexation!!
+    //         break;
+    //     }
+    // }
+
+    active = findActiveProjectIndex(projects);
 
     projects[active].classList.remove('active');
     projects[active].classList.add('hidden');
@@ -196,7 +229,7 @@ let projectId;
 let tileId;
 for (let tile of tiles) {
     tile.addEventListener('click', () => {
-        // find active project, hide and break a loop
+        // project deactivation, hiding and breaking a loop
         for (let project of projects) {
             if (project.classList.contains('active')) {
                 project.classList.remove('active');
@@ -205,7 +238,18 @@ for (let tile of tiles) {
             }
         }
 
-        // activate a new project
+        // single tile deactivation
+        for (let tile of tiles) {
+            if (tile.classList.contains('single-tile-active')) {
+                tile.classList.remove('single-tile-active');
+                break;
+            }
+        }
+
+        // single tile activation
+        tile.classList.add('single-tile-active');
+
+        // project activation
         tileId = tile.getAttribute('id');
         tileId = tileId.substr(5); // removing the string 'tile-'
         projectId = 'project-' + tileId;
