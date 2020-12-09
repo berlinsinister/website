@@ -55,6 +55,7 @@ html, body {
     font-size: 12pt;
     /* color: black; */
     color: #777777;
+    color: var(--darkgray);
     text-decoration: none;
     margin: 0 1vw;
     /* font-style: italic; */
@@ -117,8 +118,9 @@ html, body {
     display: block;
     /* opacity: 0.5; */
     /* filter: grayscale(1); */
-    filter: contrast(1.1);
+    /* filter: contrast(1.1); */
     transition: 0.2s ease-out;
+    max-width: 100%;
 }
 
 .home-content {
@@ -134,7 +136,7 @@ html, body {
     text-transform: uppercase;
     font-weight: 300;
     color: var(--darkgray);
-    color: black;
+    /* color: black; */
 }
 
 .name {
@@ -246,6 +248,7 @@ html, body {
     font-style: italic;
     /* color: #97c0b0; */
     /* border: 1px solid salmon; */
+    margin: 20px 0;
 }
 
 .korean {
@@ -271,6 +274,15 @@ html, body {
     font-size: 24pt;
     color: #cccccc;
     font-weight: 300;
+}
+
+#home-title {
+    /* color: #777777; */
+    color: var(--darkgray);
+    font-weight: 200;
+    font-size: 32pt;
+    text-transform: uppercase;
+    margin: 20px 0 10px 0;
 }
 
 .paragraph {
@@ -300,6 +312,7 @@ html, body {
     flex-direction: column;
     width: inherit;
     background-color: #222222;
+    /* background-color: var(--darkgray); */
     color: white;
     /* margin: 10px 0 70px 0; */
     margin: 30px 0 100px 0; /* repeat */
@@ -348,21 +361,21 @@ html, body {
     transform: translate(10px);
 }
 
-/* /about */
+/* ** ** END OF ABOUT ** ** */
 
-/* projects */
-
+/* ** ** PROJECTS ** ** */
 .projects {
     width: inherit;
+    height: inherit;
     background-color: white;
     color: var(--darkgray);
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     position: relative;
-    /* border: 1px solid cyan; */
-    margin: 30px 0 100px 0; /* repeat */
+    border: 1px solid cyan;
+    /* margin: 30px 0 100px 0; */
 }
 
 .tiles {
@@ -373,7 +386,17 @@ html, body {
     justify-content: flex-start;
 }
 
-#projects-title, #project-details, #subtitle {
+#projects-title {
+    color: var(--darkgray);
+    font-weight: 200;
+    font-size: 32pt;
+    text-transform: uppercase;
+    margin: 20px 0 10px 0;
+    /* margin-bottom: 30px; */
+    width: 70%;
+}
+
+#project-details, #subtitle {
     margin-bottom: 30px;
     width: 70%;
 }
@@ -587,17 +610,108 @@ html, body {
     opacity: 0.8;
 }
 /* end of ctrl-v */
-/* end of projects */
+/* ** ** END OF PROJECTS ** ** */
 
-/* contacts */
+/* ** ** CONTACTS ** ** */
 .contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
+    background-color: #222222;
+    /* color: #777777; */
+    color: white;
+    position: relative;
+    /* padding: 30px 0 50px 0; */
+    /* margin: 30px 0 100px 0; */
+    /* border-top: 1px solid lime; */
+}
+
+#contacts-title {
+    position: relative;
+    top: -70px;
+    /* color: #777777; */
+    color: #444444;
+    font-weight: 200;
+    font-size: 32pt;
+    text-transform: uppercase;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid limegreen; */
+    width: 30%;
+}
+
+.input-div {
+    position: relative;
+}
+
+.input-div span {
+    position: absolute;
+    left: 25px;
+    top: 20px;
+    font-size: 12pt;
+    color: #444444;
+}
+
+.contact-form input, .contact-form textarea {
+    margin: 10px;
+    padding: 10px 40px;
+    border: 1px solid #333333;
+    background-color: #222222;
+    width: 100%;
+}
+
+.contact-form textarea {
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #444444;
+    font-family: var(--roboto), serif;
+    font-size: 11pt;
+    transition: 0.2s ease-out;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    color: white;
+}
+
+.contact-form input::placeholder {
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #444444;
+    transition: 0.2s ease-out;
+}
+
+.contact-form input:focus::placeholder {
+    color: white;
+}
+
+#submit {
+    background-color: #222222;
+    color: #444444;
+    border: 1px solid #333333;
+    text-transform: uppercase;
+    transition: 0.2s ease-out;
+}
+
+#submit:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.footer {
     display: flex;
     justify-content: center;
     width: inherit;
-    /* background-color: #777777; */
-    color: #777777;
-    padding: 30px 0 50px 0; /* repeat */
-    border-top: 1px solid #cccccc;
+    position: absolute;
+    bottom: 20px;
+    padding: 30px;
+    border-top: 1px solid #333333;
 }
 
 .copyright {
@@ -606,9 +720,11 @@ html, body {
     font-size: 11pt;
     text-transform: uppercase;
     font-weight: 300;
+    color: #777777;
+    letter-spacing: 2px;
 }
 
-.contacts-container {
+.socials {
     width: 35%;
 }
 
@@ -625,10 +741,10 @@ html, body {
 
 .contact-link:hover {
     transform: translate(10px);
-    opacity: 0.5;
+    /* opacity: 0.5; */
+    filter: brightness(1.5);
 }
-
-/* end of contacts */
+/* ** ** END OF CONTACTS ** ** */
 
 @media screen and (max-width: 600px) {
     .home-content {

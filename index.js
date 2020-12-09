@@ -258,3 +258,9 @@ phone.addEventListener('mouseover', () => {
 phone.addEventListener('mouseout', () => {
     phone.innerHTML = 'call me';
 });
+
+// submit prevent default
+let submit = document.querySelector('#submit');
+submit.addEventListener('click', e => {
+    e.preventDefault();
+});
