@@ -112,14 +112,22 @@ navlogo.addEventListener('mouseover', () => {
 // on scroll
 let navbar = document.querySelector('.navbar');
 let homeContent = document.querySelector('.home-content');
+let searchBar = document.querySelector('.search-bar');
+let search = document.querySelector('.search');
 window.addEventListener("scroll", () => {
     let y = window.scrollY;
     if (y >= 100) {
         navbar.classList.add('navbar-scroll');
+        navlogo.classList.add('navlogo-scroll');
         homeContent.style.display = 'none';
+        searchBar.style.display = 'none';
+        search.style.display = 'none';
     } else {
         navbar.classList.remove('navbar-scroll');
+        navlogo.classList.remove('navlogo-scroll');
         homeContent.style.display = 'block';
+        searchBar.style.display = 'inline-block';
+        search.style.display = 'inline-block';
     }
 });
 
