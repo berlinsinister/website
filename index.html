@@ -15,6 +15,8 @@
 
 <body>
 
+    <!-- HOME -->
+    <!-- navbar -->
     <div class="navbar">
         <div class="navlogo">
             <img src="images/backgrounds/logo-code.png" alt="logo">
@@ -26,15 +28,31 @@
             <a href="#contacts" class="navbar-link">contacts</a>
             <input type="text" placeholder="coming soon..." class="search-bar" disabled>
             <a href="javascript:void(0);" title="coming soon"><span class="lnr lnr-magnifier search"></span></a>
-            <!-- <a href="javascript:void(0);">GE</a> -->
-            <!-- <a href="#home" class="navbar-link"><span class="lnr lnr-heart"></span></a>
-            <a href="#about" class="navbar-link"><span class="lnr lnr-user"></span></a>
-            <a href="#projects" class="navbar-link"><span class="lnr lnr-layers"></span></a>
-            <a href="#contacts" class="navbar-link"><span class="lnr lnr-location"></span></a> -->
+            <!-- languages -->
+            <div class="languages-dropdown" id="languages-dropdown">
+                <div class="active-language">
+                    <a href="javascript:void(0);" id="english">
+                        <img src="images/icons/uk.png" alt="english">
+                    </a>
+                    <span class="lnr lnr-chevron-down"></span>
+                </div>
+                <div class="languages-content">
+                    <a href="#" id="georgian" class="single-language">
+                        <span class="lnr lnr-chevron-right"></span>ქართული
+                    </a>
+                    <a href="#" id="lithuanian" class="single-language">
+                        <span class="lnr lnr-chevron-right"></span>Lietuvių
+                    </a>
+                    <a href="#" id="german" class="single-language">
+                        <span class="lnr lnr-chevron-right"></span>Deutsch
+                    </a>
+                </div>
+            </div>
+            <!-- end of languages -->
         </div>
     </div>
+    <!-- end of navbar -->
 
-    <!-- home -->
     <div class="home" id="home">
         <div class="home-bg fade">
             <img src="images/backgrounds/home-bg.png" alt="home background">
@@ -50,9 +68,9 @@
             </div>
         </div>
     </div>
-    <!-- / home -->
+    <!-- END OF HOME -->
 
-    <!-- about -->
+    <!-- ABOUT -->
     <div class="about" id="about">
         <div class="about-content">
             <div class="welcome">
@@ -162,9 +180,9 @@
             </div>
         </div>
     </div>
-    <!-- / about -->
+    <!-- END OF ABOUT -->
 
-    <!-- projects -->
+    <!-- PROJECTS -->
     <div class="projects" id="projects">
         <p class="title" id="projects-title">.02 projects</p>
         <p class="title" id="subtitle">click on a tile to view project detailed info</p>
@@ -211,7 +229,7 @@
         <p class="title" id="project-details">.project details</p>
         <div class="project-details">
 
-            <span class="lnr lnr-chevron-left arrow" id="left-arrow"></span>
+            <span class="lnr lnr-chevron-left" id="left-arrow"></span>
 
             <!-- single project -->
             <div class="single-project active fade" id="project-1">
@@ -576,13 +594,13 @@
                 </div>
             </div>
 
-            <span class="lnr lnr-chevron-right arrow" id="right-arrow"></span>
+            <span class="lnr lnr-chevron-right" id="right-arrow"></span>
 
         </div>
     </div>
-    <!-- / projects -->
+    <!-- END OF PROJECTS -->
 
-    <!-- contacts -->
+    <!-- CONTACTS -->
     <div class="contacts" id="contacts">
         <form action="" method="post" class="contact-form">
             <p class="title" id="contacts-title">.03 contacts</p>
@@ -620,7 +638,7 @@
             </div>
         </div>
     </div>
-    <!-- / contacts -->
+    <!-- END OF CONTACTS -->
 
     <audio id="audio">
         <source src="sounds/click.mp3" type="audio/mp3">

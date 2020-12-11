@@ -19,19 +19,37 @@ audio.volume = 0.5;
 // }
 
 // click on navbar links
-let navbarLinks = document.querySelectorAll('.navbar a');
+let navbarLinks = document.querySelectorAll('.navbar-link');
 for (let link of navbarLinks) {
     link.addEventListener('click', () => {
         audio.play();
     });
 }
 
-// bit text and number motion on first page load
-// let text = document.querySelector('.title');
-// let number = document.querySelector('#home-number');
-// window.addEventListener("load", () => {
-//     text.classList.add('move-x');
-//     number.classList.add('move-y');
+// show languages on click
+let languagesDropdown = document.querySelector('.languages-dropdown');
+let languagesContent = document.querySelector('.languages-content');
+let activeLanguageArrow = document.querySelector('.active-language .lnr');
+languagesDropdown.addEventListener('click', () => {
+    languagesContent.classList.toggle('languages-show');
+    languagesContent.classList.toggle('fade');
+
+    if (activeLanguageArrow.classList.contains('rotate-180')) {
+        activeLanguageArrow.classList.remove('rotate-180');
+        activeLanguageArrow.classList.add('rotate-0');
+    } else {
+        activeLanguageArrow.classList.add('rotate-180');
+        activeLanguageArrow.classList.remove('rotate-0');
+    }
+
+    audio.play();
+});
+
+// document.addEventListener('click', e => {
+//     if (languagesContent.classList.contains('languages-show'))
+//         languagesContent.classList.remove('languages-show');
+//     console.log('document click');
+//     e.preventDefault();
 // });
 
 // random delay for fonts
@@ -122,12 +140,14 @@ window.addEventListener("scroll", () => {
         homeContent.style.display = 'none';
         searchBar.style.display = 'none';
         search.style.display = 'none';
+        languagesDropdown.style.display = 'none';
     } else {
         navbar.classList.remove('navbar-scroll');
         navlogo.classList.remove('navlogo-scroll');
         homeContent.style.display = 'block';
         searchBar.style.display = 'inline-block';
         search.style.display = 'inline-block';
+        languagesDropdown.style.display = 'inline-block';
     }
 });
 
