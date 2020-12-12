@@ -740,6 +740,7 @@ html, body {
     top: 20px;
     font-size: 12pt;
     color: var(--lightgray);
+    transition: 0.2s ease-out;
 }
 
 .contact-form input, .contact-form textarea {
@@ -748,39 +749,35 @@ html, body {
     border: 1px solid #333333;
     background-color: transparent;
     width: 100%;
-}
-
-.contact-form textarea {
     font-weight: 300;
     text-transform: uppercase;
-    color: var(--lightgray);
+    color: white;
+    font-size: 10pt;
     font-family: var(--roboto), serif;
-    font-size: 11pt;
     transition: 0.2s ease-out;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
     outline: none;
-    color: white;
 }
 
-.contact-form input::placeholder {
+.contact-form input::placeholder, .contact-form textarea::placeholder {
     font-weight: 300;
     text-transform: uppercase;
     color: var(--lightgray);
     transition: 0.2s ease-out;
 }
 
-.contact-form input:focus::placeholder {
+.contact-form input:focus::placeholder, .contact-form textarea:focus::placeholder {
     color: white;
 }
 
+.fa-color {
+    color: crimson;
+}
+
 #submit {
-    background-color: transparent;
     color: var(--lightgray);
-    border: 1px solid #333333;
-    text-transform: uppercase;
-    transition: 0.2s ease-out;
 }
 
 #submit:hover {

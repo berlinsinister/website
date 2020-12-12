@@ -277,6 +277,21 @@ for (let tile of tiles) {
     });
 }
 
+// fa icons color change on focus
+let inputs = Array.prototype.slice.call(document.querySelectorAll('.contact-form input')); // converts node list into array, requires querySelectorAll
+let textArea = document.querySelector('.contact-form textarea');
+inputs = inputs.concat(textArea);
+let lightgray = '#555555';
+for (let input of inputs) {
+    let inputSpan = input.nextElementSibling;
+    input.addEventListener('focus', () => {
+        inputSpan.style.color = 'white';
+    });
+    input.addEventListener('blur', () => {
+        inputSpan.style.color = lightgray;
+    });
+}
+
 // phone show
 let phone = document.querySelector('#phone');
 phone.addEventListener('mouseover', () => {
@@ -288,7 +303,7 @@ phone.addEventListener('mouseout', () => {
 });
 
 // submit prevent default
-let submit = document.querySelector('#submit');
-submit.addEventListener('click', e => {
-    e.preventDefault();
-});
+// let submit = document.querySelector('#submit');
+// submit.addEventListener('click', e => {
+//     e.preventDefault();
+// });

@@ -602,17 +602,20 @@
 
     <!-- CONTACTS -->
     <div class="contacts" id="contacts">
-        <form action="" method="post" class="contact-form">
+        <form action="send_mail.php" method="post" class="contact-form">
             <p class="title" id="contacts-title">.03 contacts</p>
             <div class="input-div">
-                <input type="text" name="name" placeholder="Your name">
-                <span class="lnr lnr-user"></span>
+                <input type="text" name="name" id="input-name" placeholder="Your name">
+                <span class="lnr lnr-user" id="input-name-span"></span>
             </div>
             <div class="input-div">
-                <input type="email" name="email" placeholder="Your Email">
+                <input type="email" name="email" id="input-email" placeholder="Your Email">
                 <span class="lnr lnr-envelope"></span>
             </div>
-            <textarea name="comment" cols="30" rows="10">Your comment</textarea>
+            <div class="input-div">
+                <textarea name="comment" cols="30" rows="10" placeholder="Your comment"></textarea>
+                <span class="lnr lnr-pencil"></span>
+            </div>
             <input type="submit" name="submit" id="submit" value="Send">
         </form>
         <div class="footer">
