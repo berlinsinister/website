@@ -73,7 +73,7 @@ html, body {
 
 .navbar-link:hover {
     opacity: 0.5;
-    transform: translate(10px);
+    transform: translateX(2px) translateY(2px);
 }
 
 .search-bar {
@@ -818,12 +818,26 @@ html, body {
     transition: 0.2s ease-out;
     color: var(--lightgray);
     text-decoration: none;
+    position: relative;
 }
 
 .contact-link:hover {
-    transform: translate(10px);
+    /* transform: translate(10px); */
+    /* transform: translateX(5px); */
     /* opacity: 0.5; */
     filter: brightness(1.5);
+}
+
+.phone {
+    display: none;
+}
+
+.phone-show {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    display: inline-block;
+    color: white;
 }
 /* ** ** END OF CONTACTS ** ** */
 

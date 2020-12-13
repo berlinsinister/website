@@ -605,11 +605,11 @@
         <form action="send_mail.php" method="post" class="contact-form">
             <p class="title" id="contacts-title">.03 contacts</p>
             <div class="input-div">
-                <input type="text" name="name" id="input-name" placeholder="Your name">
+                <input type="text" name="name" id="input-name" placeholder="Your name" autocomplete="off">
                 <span class="lnr lnr-user" id="input-name-span"></span>
             </div>
             <div class="input-div">
-                <input type="email" name="email" id="input-email" placeholder="Your Email">
+                <input type="email" name="email" id="input-email" placeholder="Your Email" autocomplete="off">
                 <span class="lnr lnr-envelope"></span>
             </div>
             <div class="input-div">
@@ -632,8 +632,9 @@
                 <a href="https://github.com/berlinsinister" class="contact-link" target="_blank">
                     Github
                 </a>
-                <a href="javascript:void(0);" class="contact-link" id="phone">
+                <a href="javascript:void(0);" class="contact-link" id="phone-link">
                     Call me
+                    <span class="phone">593 95 17 33</span>
                 </a>
                 <a href="mailto:malikaefremova@gmail.com" class="contact-link">
                     Send me an email

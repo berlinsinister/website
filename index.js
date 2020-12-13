@@ -293,13 +293,17 @@ for (let input of inputs) {
 }
 
 // phone show
-let phone = document.querySelector('#phone');
-phone.addEventListener('mouseover', () => {
-    phone.innerHTML = '593 95 17 33';
+let phoneLink = document.querySelector('#phone-link');
+let phone = document.querySelector('.phone');
+phoneLink.addEventListener('mouseover', () => {
+    // phoneLink.innerHTML = '593 95 17 33';
+    phone.classList.add('phone-show');
+    phone.classList.add('fade');
 });
 
-phone.addEventListener('mouseout', () => {
-    phone.innerHTML = 'call me';
+phoneLink.addEventListener('mouseout', () => {
+    // phoneLink.innerHTML = 'call me';
+    phone.classList.remove('phone-show');
 });
 
 // submit prevent default
