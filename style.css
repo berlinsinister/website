@@ -74,6 +74,7 @@ html, body {
 .navbar-link:hover {
     opacity: 0.5;
     transform: translateX(2px) translateY(2px);
+    cursor: url(images/cursors/hover.png), auto;
 }
 
 .search-bar {
@@ -214,13 +215,14 @@ html, body {
 
 .home-content {
     position: absolute;
-    top: 420px;
+    /* top: 420px; */ /* with wider bg */
+    top: 350px;
     left: 220px;
     z-index: 10;
 }
 
 .name, .profession {
-    font-size: 14pt;
+    font-size: 12pt; /* 14pt; */ /* with wider bg */
     letter-spacing: 4px;
     text-transform: uppercase;
     font-weight: 300;
@@ -230,6 +232,16 @@ html, body {
 
 .name {
     font-size: 18pt;
+}
+
+.skills-line {
+    text-transform: lowercase;
+    position: relative;
+    top: 20px;
+    letter-spacing: 2px;
+    font-size: 8pt;
+    color: var(--darkgray);
+    opacity: 0;
 }
 
 .name b {
@@ -292,6 +304,23 @@ html, body {
     }
     100% {
         letter-spacing: 5px;
+    }
+}
+
+.skills-line-fade {
+    animation-name: skills-line-fade;
+    animation-duration: 1.7s;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes skills-line-fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 /* ** ** END OF HOME ** ** */
