@@ -88,28 +88,30 @@ let welcome = document.querySelector('.welcome');
 // let languages = ['Welcome', 'Bienvenue', 'Sveiki atvykę', 'Velkominn', '어서 오십시오', 'ようこそ', 'Willkommen'];
 let languages = ['Welcome', 'Bienvenue', 'Sveiki atvykę', 'Velkominn', 'Willkommen'];
 let i = 0;
-setInterval(() => {
-    welcome.innerHTML = languages[i];
-    welcome.classList.add('fade');
+setTimeout(() => {
+    setInterval(() => {
+        welcome.innerHTML = languages[i];
+        welcome.classList.add('fade');
 
-    // if (languages[i] == '어서 오십시오')
-    //     welcome.classList.add('korean');
-    // else if (welcome.classList.contains('korean'))
-    //     welcome.classList.remove('korean');
+        // if (languages[i] == '어서 오십시오')
+        //     welcome.classList.add('korean');
+        // else if (welcome.classList.contains('korean'))
+        //     welcome.classList.remove('korean');
 
-    // if (languages[i] == 'ようこそ')
-    //     welcome.classList.add('japanese');
-    // else if (welcome.classList.contains('japanese'))
-    //     welcome.classList.remove('japanese');
+        // if (languages[i] == 'ようこそ')
+        //     welcome.classList.add('japanese');
+        // else if (welcome.classList.contains('japanese'))
+        //     welcome.classList.remove('japanese');
 
-    i++;
+        i++;
 
-    if (i == languages.length)
-        i = 0;
-    setTimeout(() => {
-        welcome.classList.remove('fade');
-    }, delay / 2);
-}, delay);
+        if (i == languages.length)
+            i = 0;
+        setTimeout(() => {
+            welcome.classList.remove('fade');
+        }, delay / 2);
+    }, delay);
+}, delay / 1.5);
 
 // navlogo hover
 let navlogo = document.querySelector('.navlogo');
@@ -311,3 +313,26 @@ phoneLink.addEventListener('mouseout', () => {
 // submit.addEventListener('click', e => {
 //     e.preventDefault();
 // });
+
+// is in viewport
+const isInViewport = elem => {
+    let bounding = elem.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
+
+let skillTypes = document.querySelectorAll('.skill-type');
+console.log(skillTypes);
+for (let skill of skillTypes) {
+    window.addEventListener("scroll", () => {
+        if (isInViewport(skill)) {
+            skill.classList.add('skill-type-move-x');
+        } else {
+            skill.classList.remove('skill-type-move-x');
+        }
+    });
+}
