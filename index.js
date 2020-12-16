@@ -20,9 +20,32 @@ audio.volume = 0.5;
 
 // click on navbar links
 let navbarLinks = document.querySelectorAll('.navbar-link');
+let hoverDelay = 30;
 for (let link of navbarLinks) {
     link.addEventListener('click', () => {
         audio.play();
+    });
+    link.addEventListener('mouseover', () => {
+        link.classList.add('navbar-link-cursor-hover-1');
+        setTimeout(() => {
+            link.classList.remove('navbar-link-cursor-hover-1');
+            link.classList.add('navbar-link-cursor-hover-2');
+        }, hoverDelay);
+        setTimeout(() => {
+            link.classList.remove('navbar-link-cursor-hover-2');
+            link.classList.add('navbar-link-cursor-hover-3');
+        }, hoverDelay * 2);
+        // setTimeout(() => {
+        //     link.classList.remove('navbar-link-cursor-hover-3');
+        //     link.classList.add('navbar-link-cursor-hover-4');
+        // }, hoverDelay * 3);
+        setTimeout(() => {
+            link.classList.remove('navbar-link-cursor-hover-3');
+            link.classList.add('navbar-link-cursor-hover-1');
+        }, hoverDelay * 3);
+    });
+    link.addEventListener('mouseout', () => {
+        link.classList.remove('navbar-link-cursor-hover-1');
     });
 }
 
@@ -115,19 +138,24 @@ setTimeout(() => {
 
 // navlogo hover
 let navlogo = document.querySelector('.navlogo');
+let profession = document.querySelector('.profession');
+let homeBg = document.querySelector('.home-bg');
 let hexSymbols = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f'];
 let hexColor = '';
 let randomHexNumber;
 
-navlogo.addEventListener('mouseover', () => {
-    for (let i = 0; i < 6; i++) {
-        randomHexNumber = Math.floor(Math.random() * 16); // random integer from 0 to 15
-        hexColor = hexColor.concat(hexSymbols[randomHexNumber]);
-    }
-    // console.log(hexColor);
-    navlogo.style.backgroundColor = '#' + hexColor;
-    hexColor = '';
-});
+// navlogo.addEventListener('mouseover', () => {
+//     for (let i = 0; i < 6; i++) {
+//         randomHexNumber = Math.floor(Math.random() * 16); // random integer from 0 to 15
+//         hexColor = hexColor.concat(hexSymbols[randomHexNumber]);
+//     }
+//     // console.log(hexColor);
+//     navlogo.style.backgroundColor = '#' + hexColor;
+//     // profession.style.backgroundColor = '#' + hexColor;
+//     hexColor = '';
+
+//     // homeBg.style.filter = 'grayscale(1)';
+// });
 
 // on scroll
 let navbar = document.querySelector('.navbar');

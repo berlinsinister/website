@@ -24,7 +24,7 @@ html, body {
     background-color: white;
     position: fixed;
     width: inherit;
-    padding: 20px 200px 30px 200px;
+    padding: 20px 300px 30px 300px;
     z-index: 1;
     display: flex;
     justify-content: space-between;
@@ -36,7 +36,7 @@ html, body {
     box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.1);
     opacity: 0.95;
     top: -5px;
-    padding: 0 200px 0 200px;
+    padding: 0 300px 0 300px;
 }
 
 .navlogo {
@@ -44,8 +44,8 @@ html, body {
     position: relative;
     top: -20px;
     box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.5);
-    width: 60px;
-    height: 150px;
+    width: 50px; /* 60px; */
+    height: 125px; /* 150px; */
     background-color: black;
     transition: top 0.2s ease-out;
 }
@@ -74,7 +74,22 @@ html, body {
 .navbar-link:hover {
     opacity: 0.5;
     transform: translateX(2px) translateY(2px);
-    cursor: url(images/cursors/hover.png), auto;
+}
+
+.navbar-link-cursor-hover-1 {
+    cursor: url(images/cursors/hover-1.png), auto;
+}
+
+.navbar-link-cursor-hover-2 {
+    cursor: url(images/cursors/hover-2.png), auto;
+}
+
+.navbar-link-cursor-hover-3 {
+    cursor: url(images/cursors/hover-3.png), auto;
+}
+
+.navbar-link-cursor-hover-4 {
+    cursor: url(images/cursors/hover-4.png), auto;
 }
 
 .search-bar {
@@ -216,9 +231,12 @@ html, body {
 .home-content {
     position: absolute;
     /* top: 420px; */ /* with wider bg */
-    top: 350px;
-    left: 220px;
+    top: 290px;
+    left: 300px;
     z-index: 10;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
 }
 
 .name, .profession {
@@ -232,6 +250,13 @@ html, body {
 
 .name {
     font-size: 18pt;
+    /* padding: 10px 0; */
+}
+
+.profession {
+    /* background-color: black; */
+    /* color: white; */
+    /* padding: 5px 20px; */
 }
 
 .skills-line {
@@ -240,7 +265,8 @@ html, body {
     top: 20px;
     letter-spacing: 2px;
     font-size: 8pt;
-    color: var(--darkgray);
+    /* color: var(--darkgray); */
+    color: black;
     opacity: 0;
 }
 
@@ -320,7 +346,7 @@ html, body {
         opacity: 0;
     }
     100% {
-        opacity: 0.7;
+        opacity: 1;
     }
 }
 /* ** ** END OF HOME ** ** */
